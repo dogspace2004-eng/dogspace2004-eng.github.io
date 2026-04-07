@@ -1,5 +1,5 @@
-const CACHE = 'planner-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json', '/icon.png'];
+const CACHE = 'planner-v2';
+const ASSETS = ['/planner/', '/planner/index.html', '/planner/manifest.json', '/planner/icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS).catch(() => {})));
