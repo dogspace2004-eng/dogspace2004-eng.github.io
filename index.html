@@ -607,7 +607,6 @@ function renderToday(){
   const hrs=lessons.reduce((s,ev)=>s+durH(ev.start,ev.end),0);
   document.getElementById('today-stats').innerHTML=`
     <div class="today-stat green"><div class="today-stat-val">${Math.round(inc).toLocaleString()} ₽</div><div class="today-stat-lbl">заработаю сегодня</div></div>
-    <div class="today-stat blue"><div class="today-stat-val">${Math.round(rem).toLocaleString()} ₽</div><div class="today-stat-lbl">ещё впереди</div></div>
     <div class="today-stat"><div class="today-stat-val">${lessons.length}</div><div class="today-stat-lbl">уроков</div></div>
     <div class="today-stat"><div class="today-stat-val">${fmtH(hrs)||'—'}</div><div class="today-stat-lbl">часов уроков</div></div>`;
   document.getElementById('today-timeline').innerHTML=todayEvs.length?todayEvs.map(ev=>{
@@ -618,7 +617,6 @@ function renderToday(){
     return`<div class="tl-item ev-${ev.type}${isPast?' past':''}">
       <div class="tl-time">${ev.start}${ev.end?'–'+ev.end:''}</div>
       <div style="flex:1"><div class="tl-name">${ev.recurType!=='once'?'↻ ':''}${label}</div><div class="tl-sub">${sub} · ${fmtDur(ev.start,ev.end)}</div></div>
-      ${earn>0?`<div class="tl-earn">${Math.round(earn)} ₽</div>`:''}
     </div>`;}).join(''):'<div class="empty">Событий нет — добавь в Календаре</div>';
   renderGoals();
 }
