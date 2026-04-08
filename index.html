@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Планировщик">
@@ -17,7 +17,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap}
 .header-left h1{font-size:19px;font-weight:600}
 .header-date{font-size:12px;color:#6e6e73;margin-top:3px}
-.header-clock{font-size:26px;font-weight:300;letter-spacing:-0.5px;text-align:right}
+.header-clock{font-size:22px;font-weight:300;letter-spacing:-0.5px;text-align:right}@media(max-width:400px){.header-clock{font-size:18px}}
 .header-clock-sub{font-size:11px;color:#8e8e93;text-align:right;margin-top:1px}
 .tab-bar{display:flex;gap:0;border-bottom:1px solid #d2d2d7;margin-bottom:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tab{padding:8px 13px;font-size:13px;color:#6e6e73;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
@@ -25,7 +25,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .view{display:none}.view.active{display:block}
 .card{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:14px 16px;margin-bottom:12px}
 .section-label{font-size:11px;color:#8e8e93;text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:8px}
-input[type=text],input[type=time],input[type=number],input[type=date],textarea,select{background:#f5f5f7;border:1px solid #d2d2d7;border-radius:8px;padding:7px 10px;font-size:13px;color:#1d1d1f;outline:none;width:100%;font-family:inherit}
+input[type=text],input[type=time],input[type=number],input[type=date],textarea,select{background:#f5f5f7;border:1px solid #d2d2d7;border-radius:8px;padding:7px 10px;font-size:16px;color:#1d1d1f;outline:none;width:100%;font-family:inherit}
 input:focus,textarea:focus,select:focus{border-color:#007aff;background:#fff}
 button{background:#fff;border:1px solid #d2d2d7;border-radius:8px;padding:6px 13px;font-size:13px;color:#1d1d1f;cursor:pointer;font-family:inherit;white-space:nowrap}
 button:hover{background:#f5f5f7}
@@ -77,7 +77,8 @@ button.small{padding:2px 8px;font-size:12px}
 .cal-legend{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
 .leg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#6e6e73}
 .leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
-.cal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;-webkit-overflow-scrolling:touch}
+.cal-grid{touch-action:pan-x pan-y}
 .cal-grid{display:grid;grid-template-columns:44px repeat(7,1fr);min-width:540px;border:1px solid #e5e5ea;border-radius:12px;overflow:hidden;background:#fff}
 .cal-head-cell{background:#f9f9f9;border-bottom:1px solid #e5e5ea;padding:7px 4px;text-align:center;font-size:11px;font-weight:500;color:#6e6e73}
 .cal-head-cell.today-col{color:#007aff}
@@ -178,6 +179,20 @@ button.small{padding:2px 8px;font-size:12px}
 .profile-indicator:hover{background:#f5f5f7}
 .api-config{border-top:1px solid #f2f2f7;padding-top:12px;margin-top:4px}
 .readonly-banner{background:#fef9c3;border:1px solid #fde68a;border-radius:8px;padding:8px 12px;font-size:12px;color:#854d0e;margin-bottom:12px;display:none}
+
+@media(max-width:600px){
+  .header{gap:8px}
+  .header-left h1{font-size:16px}
+  .header-date{font-size:11px}
+  .fin-summary{grid-template-columns:1fr 1fr}
+  .tab{padding:8px 10px;font-size:12px}
+  .profile-box{padding:20px 16px}
+  .goal-add-row{flex-direction:column}
+  .goal-add-row input{width:100%}
+  .cal-grid{min-width:460px}
+  .fin-month-label{font-size:14px}
+  button{font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -269,21 +284,25 @@ button.small{padding:2px 8px;font-size:12px}
     <div class="cat-tabs" id="fin-cat-tabs"></div>
     <div class="card" id="fin-add-income">
       <div class="section-label">Добавить доход</div>
-      <div class="row" style="margin-top:6px">
-        <div style="flex:1;min-width:120px"><input type="text" id="inc-title" placeholder="Зарплата, премия..."></div>
-        <div style="flex:0 0 100px"><input type="number" id="inc-amount" placeholder="Сумма ₽"></div>
-        <div style="flex:0 0 130px"><input type="date" id="inc-date"></div>
-        <button class="primary" onclick="addIncome()">+ доход</button>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <input type="text" id="inc-title" placeholder="Зарплата, премия...">
+        <div style="display:flex;gap:8px">
+          <input type="number" id="inc-amount" placeholder="Сумма ₽" style="flex:1">
+          <input type="date" id="inc-date" style="flex:1">
+        </div>
+        <button class="primary" onclick="addIncome()" style="width:100%">+ доход</button>
       </div>
     </div>
     <div class="card" id="fin-add-expense" style="display:none">
       <div class="section-label">Добавить расход</div>
-      <div class="row" style="margin-top:6px">
-        <div style="flex:1;min-width:120px"><input type="text" id="exp-title" placeholder="Что купил..."></div>
-        <div style="flex:0 0 100px"><input type="number" id="exp-amount" placeholder="Сумма ₽"></div>
-        <div style="flex:0 0 130px"><input type="date" id="exp-date"></div>
-        <div style="flex:0 0 150px"><select id="exp-cat"></select></div>
-        <button class="primary" onclick="addExpense()">+ расход</button>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <input type="text" id="exp-title" placeholder="Что купил...">
+        <div style="display:flex;gap:8px">
+          <input type="number" id="exp-amount" placeholder="Сумма ₽" style="flex:1">
+          <input type="date" id="exp-date" style="flex:1">
+        </div>
+        <select id="exp-cat"></select>
+        <button class="primary" onclick="addExpense()" style="width:100%">+ расход</button>
       </div>
     </div>
     <div class="card" id="fin-add-cats" style="display:none">
@@ -303,10 +322,12 @@ button.small{padding:2px 8px;font-size:12px}
   <div id="v-students" class="view">
     <div class="card">
       <div class="section-label">Добавить ученика</div>
-      <div class="row" style="margin-top:6px">
-        <div style="flex:1;min-width:100px"><input type="text" id="new-sname" placeholder="Имя"></div>
-        <div style="flex:0 0 100px"><input type="number" id="new-sprice" placeholder="₽/час"></div>
-        <button class="primary" onclick="addStudent()">Добавить</button>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <input type="text" id="new-sname" placeholder="Имя ученика">
+        <div style="display:flex;gap:8px">
+          <input type="number" id="new-sprice" placeholder="₽/час" style="flex:1">
+          <button class="primary" onclick="addStudent()">Добавить</button>
+        </div>
       </div>
     </div>
     <div class="card"><div class="section-label">Список</div><div id="students-list"></div></div>
