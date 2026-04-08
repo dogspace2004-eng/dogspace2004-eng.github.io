@@ -19,9 +19,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .header-date{font-size:12px;color:#6e6e73;margin-top:3px}
 .header-clock{font-size:22px;font-weight:300;letter-spacing:-0.5px;text-align:right}@media(max-width:400px){.header-clock{font-size:18px}}
 .header-clock-sub{font-size:11px;color:#8e8e93;text-align:right;margin-top:1px}
-.tab-bar{display:flex;gap:0;border-bottom:1px solid #d2d2d7;margin-bottom:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tab{padding:8px 13px;font-size:13px;color:#6e6e73;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
-.tab.active{color:#1d1d1f;font-weight:500;border-bottom-color:#1d1d1f}
+.tab-bar{display:none}
+.tab{display:none}
 .view{display:none}.view.active{display:block}
 .card{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:14px 16px;margin-bottom:12px}
 .section-label{font-size:11px;color:#8e8e93;text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:8px}
@@ -193,6 +192,31 @@ button.small{padding:2px 8px;font-size:12px}
   .fin-month-label{font-size:14px}
   button{font-size:13px}
 }
+
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-top:0.5px solid #d2d2d7;
+  display:flex;
+  padding-bottom:env(safe-area-inset-bottom);
+  z-index:50;
+}
+.nav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  padding:8px 0 4px;gap:3px;cursor:pointer;
+  border:none;background:none;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;
+}
+.nav-icon{width:24px;height:24px;transition:transform 0.1s;color:#8e8e93}
+.nav-item.active .nav-icon{color:#007aff}
+.nav-label{font-size:10px;color:#8e8e93;font-weight:400;transition:color 0.15s}
+.nav-item.active .nav-label{color:#007aff;font-weight:600}
+.nav-item:active{opacity:0.6}
+.nav-item.active .nav-icon{transform:scale(1.1)}
+.nav-item:active .nav-icon{transform:scale(0.9)}
+.app{padding-bottom:calc(env(safe-area-inset-bottom) + 72px)!important}
 </style>
 </head>
 <body>
@@ -332,6 +356,26 @@ button.small{padding:2px 8px;font-size:12px}
     </div>
     <div class="card"><div class="section-label">Список</div><div id="students-list"></div></div>
   </div>
+
+  <nav class="bottom-nav" id="bottom-nav">
+    <button class="nav-item active" onclick="sw('today')" id="nav-today">
+      <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span class="nav-label">Сегодня</span>
+    </button>
+    <button class="nav-item" onclick="sw('calendar')" id="nav-calendar">
+      <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="nav-label">Календарь</span>
+    </button>
+    <button class="nav-item" onclick="sw('finance')" id="nav-finance">
+      <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span class="nav-label">Финансы</span>
+    </button>
+    <button class="nav-item" onclick="sw('students')" id="nav-students">
+      <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="nav-label">Ученики</span>
+    </button>
+  </nav>
+
 </div>
 
 <!-- EVENT MODAL -->
@@ -917,7 +961,14 @@ function renderStudentsList(){
 function sw(t){
   ['today','calendar','finance','students'].forEach(v=>document.getElementById('v-'+v).classList.toggle('active',v===t));
   document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['today','calendar','finance','students'][i]===t));
-  if(t==='today')renderToday();if(t==='calendar')renderCalendar();if(t==='finance')renderFinance();
+  ['today','calendar','finance','students'].forEach(v=>{
+    const el=document.getElementById('nav-'+v);
+    if(el)el.classList.toggle('active',v===t);
+  });
+  if(t==='today')renderToday();
+  if(t==='calendar')renderCalendar();
+  if(t==='finance')renderFinance();
+  if(window.navigator.vibrate)window.navigator.vibrate(8);
 }
 
 function render(){renderToday();renderStudentsList();}
