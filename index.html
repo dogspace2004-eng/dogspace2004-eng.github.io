@@ -14,26 +14,19 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;background:#f5f5f7;color:#1d1d1f}
 .app{max-width:1100px;margin:0 auto;padding:max(env(safe-area-inset-top),20px) 16px 20px}
-
-/* HEADER */
 .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap}
 .header-left h1{font-size:19px;font-weight:600}
 .header-date{font-size:12px;color:#6e6e73;margin-top:3px}
 .header-clock{font-size:26px;font-weight:300;letter-spacing:-0.5px;text-align:right}
 .header-clock-sub{font-size:11px;color:#8e8e93;text-align:right;margin-top:1px}
-
-/* TABS */
 .tab-bar{display:flex;gap:0;border-bottom:1px solid #d2d2d7;margin-bottom:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tab{padding:8px 14px;font-size:13px;color:#6e6e73;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
 .tab.active{color:#1d1d1f;font-weight:500;border-bottom-color:#1d1d1f}
 .view{display:none}.view.active{display:block}
-
-/* CARDS / FORMS */
 .card{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:14px 16px;margin-bottom:12px}
 .section-label{font-size:11px;color:#8e8e93;text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:8px}
-input[type=text],input[type=time],input[type=number],input[type=password],textarea,select{background:#f5f5f7;border:1px solid #d2d2d7;border-radius:8px;padding:7px 10px;font-size:13px;color:#1d1d1f;outline:none;width:100%;font-family:inherit}
+input[type=text],input[type=time],input[type=number],textarea,select{background:#f5f5f7;border:1px solid #d2d2d7;border-radius:8px;padding:7px 10px;font-size:13px;color:#1d1d1f;outline:none;width:100%;font-family:inherit}
 input:focus,textarea:focus,select:focus{border-color:#007aff;background:#fff}
-textarea{resize:vertical;min-height:56px}
 button{background:#fff;border:1px solid #d2d2d7;border-radius:8px;padding:6px 13px;font-size:13px;color:#1d1d1f;cursor:pointer;font-family:inherit;white-space:nowrap}
 button:hover{background:#f5f5f7}
 button.primary{background:#007aff;color:#fff;border-color:#007aff}
@@ -51,37 +44,35 @@ button.small{padding:2px 8px;font-size:12px}
 .bar-track{flex:1;height:7px;background:#f2f2f7;border-radius:4px;overflow:hidden}
 .bar-fill{height:100%;background:#007aff;border-radius:4px}
 
-/* ===== TODAY DASHBOARD ===== */
-.today-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
-.today-stat{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:14px;text-align:center}
-.today-stat-val{font-size:24px;font-weight:600;color:#1d1d1f}
+/* TODAY */
+.today-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.today-stat{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:13px;text-align:center}
+.today-stat-val{font-size:22px;font-weight:600;color:#1d1d1f}
 .today-stat-lbl{font-size:11px;color:#8e8e93;margin-top:3px}
 .today-stat.green .today-stat-val{color:#34c759}
 .today-stat.blue .today-stat-val{color:#007aff}
-
 .timeline{display:flex;flex-direction:column;gap:6px}
-.tl-item{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;background:#fff;border:1px solid #e5e5ea;border-radius:10px;position:relative;overflow:hidden}
+.tl-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#fff;border:1px solid #e5e5ea;border-radius:10px;position:relative;overflow:hidden}
 .tl-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
 .tl-item.ev-lesson::before{background:#3b82f6}
 .tl-item.ev-work::before{background:#10b981}
 .tl-item.ev-uni::before{background:#8b5cf6}
 .tl-item.ev-personal::before{background:#f472b6}
 .tl-item.past{opacity:0.45}
-.tl-time{font-size:12px;font-weight:600;color:#6e6e73;min-width:80px;margin-top:1px}
-.tl-name{font-size:13px;font-weight:500;color:#1d1d1f}
+.tl-time{font-size:12px;font-weight:600;color:#6e6e73;min-width:78px;margin-top:1px}
+.tl-name{font-size:13px;font-weight:500}
 .tl-sub{font-size:11px;color:#8e8e93;margin-top:2px}
-.tl-earn{font-size:12px;font-weight:600;color:#34c759;margin-left:auto;margin-top:1px;flex-shrink:0}
-
+.tl-earn{font-size:12px;font-weight:600;color:#34c759;margin-left:auto;flex-shrink:0;margin-top:1px}
 .goals-list{display:flex;flex-direction:column;gap:6px}
-.goal-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#fff;border:1px solid #e5e5ea;border-radius:10px;cursor:pointer;transition:opacity 0.15s}
+.goal-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#fff;border:1px solid #e5e5ea;border-radius:10px;cursor:pointer}
 .goal-item.done-goal{opacity:0.5}
-.goal-check{width:18px;height:18px;border-radius:50%;border:1.5px solid #d2d2d7;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.15s}
+.goal-check{width:18px;height:18px;border-radius:50%;border:1.5px solid #d2d2d7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
 .goal-item.done-goal .goal-check{background:#34c759;border-color:#34c759;color:#fff}
-.goal-text{flex:1;font-size:13px;color:#1d1d1f}
+.goal-text{flex:1;font-size:13px}
 .goal-item.done-goal .goal-text{text-decoration:line-through;color:#8e8e93}
 .goal-add-row{display:flex;gap:8px;margin-top:8px}
 
-/* ===== CALENDAR ===== */
+/* CALENDAR */
 .cal-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .cal-toolbar button{padding:5px 11px;font-size:13px}
 .week-label{font-size:13px;font-weight:500}
@@ -109,7 +100,8 @@ button.small{padding:2px 8px;font-size:12px}
 .cal-event:active{cursor:grabbing;opacity:0.8;z-index:10}
 .cal-event-name{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cal-event-time{opacity:0.75;font-size:10px}
-.cal-event-earn{font-size:10px;opacity:0.85}
+.cal-event-comment{font-size:10px;opacity:0.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-event-recur{font-size:9px;opacity:0.6}
 .cal-event .del-btn{position:absolute;top:2px;right:3px;font-size:10px;background:none;border:none;cursor:pointer;opacity:0;padding:0;color:inherit;font-weight:700}
 .cal-event:hover .del-btn{opacity:0.7}
 .ev-lesson{background:#dbeafe;color:#1e40af}
@@ -120,30 +112,16 @@ button.small{padding:2px 8px;font-size:12px}
 .now-line-inner{border-top:2px solid #ff3b30;position:relative}
 .now-dot{width:8px;height:8px;border-radius:50%;background:#ff3b30;position:absolute;top:-4px;left:-1px}
 
-/* STAT */
+/* STATS */
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:12px}
 .stat-card{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:13px;text-align:center}
 .stat-val{font-size:21px;font-weight:600}
 .stat-lbl{font-size:11px;color:#8e8e93;margin-top:2px}
 
-/* KANBAN */
-.kanban{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media(max-width:500px){.kanban{grid-template-columns:1fr}}
-.kol{background:#f5f5f7;border-radius:12px;padding:10px}
-.kol-title{font-size:12px;font-weight:600;color:#6e6e73;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
-.ktask{background:#fff;border:1px solid #e5e5ea;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px}
-.ktask-text{line-height:1.4;margin-bottom:5px}
-.ktask-actions{display:flex;gap:4px;flex-wrap:wrap}
-.ktask-actions button{padding:2px 7px;font-size:11px;border-radius:20px}
-
-/* NOTES */
-.note-item{border-bottom:1px solid #f2f2f7;padding:10px 0}
-.note-item:last-child{border-bottom:none}
-
 /* MODAL */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:100;align-items:center;justify-content:center}
 .modal-bg.open{display:flex}
-.modal{background:#fff;border-radius:16px;padding:20px;width:340px;max-width:92vw}
+.modal{background:#fff;border-radius:16px;padding:20px;width:360px;max-width:93vw;max-height:90vh;overflow-y:auto}
 .modal h2{font-size:16px;font-weight:600;margin-bottom:14px}
 .modal .field{margin-bottom:10px}
 .modal .field label{font-size:12px;color:#6e6e73;display:block;margin-bottom:4px}
@@ -154,8 +132,21 @@ button.small{padding:2px 8px;font-size:12px}
 .type-btn.sel-work{background:#d1fae5;color:#065f46;border-color:#a7f3d0}
 .type-btn.sel-uni{background:#ede9fe;color:#5b21b6;border-color:#ddd6fe}
 .type-btn.sel-personal{background:#fce7f3;color:#9d174d;border-color:#fbcfe8}
+.recur-btns{display:flex;gap:6px;flex-wrap:wrap}
+.recur-btn{padding:5px 11px;font-size:12px;border-radius:20px;border:1px solid #d2d2d7;background:#fff;cursor:pointer}
+.recur-btn.sel{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
 
-/* PROFILE SCREEN */
+/* DELETE MODAL */
+.del-modal{background:#fff;border-radius:16px;padding:20px;width:300px;max-width:92vw}
+.del-modal h2{font-size:15px;font-weight:600;margin-bottom:4px}
+.del-modal p{font-size:13px;color:#6e6e73;margin-bottom:14px}
+.del-options{display:flex;flex-direction:column;gap:8px}
+.del-option{padding:10px 14px;border:1px solid #e5e5ea;border-radius:10px;cursor:pointer;font-size:13px;background:#fff;text-align:left;font-family:inherit}
+.del-option:hover{background:#f5f5f7}
+.del-option.red{color:#ff3b30;border-color:#ffd6d4}
+.del-option.red:hover{background:#fff5f5}
+
+/* PROFILE */
 .profile-screen{position:fixed;inset:0;background:#f5f5f7;z-index:200;display:flex;align-items:center;justify-content:center}
 .profile-box{background:#fff;border-radius:20px;padding:28px 24px;width:320px;max-width:90vw;border:1px solid #e5e5ea}
 .profile-box h2{font-size:18px;font-weight:600;margin-bottom:6px;text-align:center}
@@ -167,20 +158,20 @@ button.small{padding:2px 8px;font-size:12px}
 .profile-name{flex:1;font-size:14px;font-weight:500}
 .profile-meta{font-size:11px;color:#8e8e93}
 .new-profile-row{display:flex;gap:8px}
-.profile-indicator{display:flex;align-items:center;gap:6px;cursor:pointer;padding:4px 8px;border-radius:8px;border:1px solid #e5e5ea;background:#fff;font-size:12px;color:#6e6e73}
+.profile-indicator{display:flex;align-items:center;gap:5px;cursor:pointer;padding:4px 9px;border-radius:8px;border:1px solid #e5e5ea;background:#fff;font-size:12px;color:#6e6e73}
 .profile-indicator:hover{background:#f5f5f7}
 </style>
 </head>
 <body>
 
-<!-- PROFILE SWITCHER SCREEN -->
+<!-- PROFILE -->
 <div class="profile-screen" id="profile-screen">
   <div class="profile-box">
     <h2>Планировщик</h2>
     <p>Выбери профиль или создай новый</p>
     <div class="profile-list" id="profile-list"></div>
     <div class="new-profile-row">
-      <input type="text" id="new-profile-name" placeholder="Имя нового профиля" style="flex:1">
+      <input type="text" id="new-profile-name" placeholder="Имя нового профиля" style="flex:1" onkeydown="if(event.key==='Enter')createProfile()">
       <button class="primary" onclick="createProfile()">+</button>
     </div>
   </div>
@@ -192,7 +183,7 @@ button.small{padding:2px 8px;font-size:12px}
       <h1>Мой планировщик</h1>
       <div class="header-date" id="header-date"></div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
       <div class="header-clock" id="header-clock"></div>
       <div class="header-clock-sub" id="header-clock-sub"></div>
       <div class="profile-indicator" id="profile-indicator" onclick="switchProfile()"></div>
@@ -203,15 +194,13 @@ button.small{padding:2px 8px;font-size:12px}
     <button class="tab active" onclick="sw('today')">Сегодня</button>
     <button class="tab" onclick="sw('calendar')">Календарь</button>
     <button class="tab" onclick="sw('stats')">Статистика</button>
-    <button class="tab" onclick="sw('notes')">Заметки</button>
-    <button class="tab" onclick="sw('devops')">DevOps</button>
     <button class="tab" onclick="sw('students')">Ученики</button>
   </div>
 
   <!-- TODAY -->
   <div id="v-today" class="view active">
     <div class="today-grid" id="today-stats"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px" id="today-cols">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" id="today-cols">
       <div>
         <div class="section-label" style="margin-bottom:8px">События сегодня</div>
         <div class="timeline" id="today-timeline"></div>
@@ -225,9 +214,7 @@ button.small{padding:2px 8px;font-size:12px}
         </div>
       </div>
     </div>
-    <style>
-      @media(max-width:600px){#today-cols{grid-template-columns:1fr!important}}
-    </style>
+    <style>@media(max-width:600px){#today-cols{grid-template-columns:1fr!important}}</style>
   </div>
 
   <!-- CALENDAR -->
@@ -254,44 +241,14 @@ button.small{padding:2px 8px;font-size:12px}
     <div class="card"><div class="section-label">По дням</div><div id="days-breakdown"></div></div>
   </div>
 
-  <!-- NOTES -->
-  <div id="v-notes" class="view">
-    <div class="card">
-      <div class="section-label">Новая заметка</div>
-      <div class="row" style="margin-bottom:8px">
-        <div style="flex:1"><select id="note-student-sel"></select></div>
-        <div style="flex:0 0 110px"><input type="text" id="note-date" placeholder="Дата"></div>
-      </div>
-      <textarea id="note-passed" placeholder="Что прошли..."></textarea>
-      <textarea id="note-hw" placeholder="Домашнее задание..." style="margin-top:6px"></textarea>
-      <div style="margin-top:8px"><button class="primary" onclick="addNote()">Сохранить</button></div>
-    </div>
-    <div class="card"><div class="section-label">История <span id="notes-count" class="badge">0</span></div><div id="notes-list"></div></div>
-  </div>
-
-  <!-- DEVOPS -->
-  <div id="v-devops" class="view">
-    <div class="card">
-      <div class="row">
-        <div style="flex:1"><input type="text" id="new-task" placeholder="Новая задача..." onkeydown="if(event.key==='Enter')addTask()"></div>
-        <button class="primary" onclick="addTask()">+ задача</button>
-      </div>
-    </div>
-    <div class="kanban">
-      <div class="kol"><div class="kol-title"><span>To do</span><span id="cnt-todo" class="badge">0</span></div><div id="col-todo"></div></div>
-      <div class="kol"><div class="kol-title"><span>In progress</span><span id="cnt-prog" class="badge">0</span></div><div id="col-prog"></div></div>
-      <div class="kol"><div class="kol-title"><span>Done</span><span id="cnt-done" class="badge">0</span></div><div id="col-done"></div></div>
-    </div>
-  </div>
-
   <!-- STUDENTS -->
   <div id="v-students" class="view">
     <div class="card">
       <div class="section-label">Добавить ученика</div>
-      <div class="row" style="margin-top:6px;flex-wrap:wrap">
-        <div style="flex:1;min-width:120px"><input type="text" id="new-sname" placeholder="Имя"></div>
-        <div style="flex:0 0 110px"><input type="number" id="new-sprice" placeholder="₽/час" min="0"></div>
-        <div style="flex:1;min-width:160px"><input type="text" id="new-scomment" placeholder="Комментарий (необяз.)"></div>
+      <div class="row" style="margin-top:6px">
+        <div style="flex:1;min-width:110px"><input type="text" id="new-sname" placeholder="Имя"></div>
+        <div style="flex:0 0 100px"><input type="number" id="new-sprice" placeholder="₽/час" min="0"></div>
+        <div style="flex:1;min-width:150px"><input type="text" id="new-scomment" placeholder="Комментарий"></div>
         <button class="primary" onclick="addStudent()">Добавить</button>
       </div>
     </div>
@@ -300,8 +257,8 @@ button.small{padding:2px 8px;font-size:12px}
 </div>
 
 <!-- EVENT MODAL -->
-<div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
-  <div class="modal" onclick="event.stopPropagation()">
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModalDirect()">
+  <div class="modal">
     <h2 id="modal-title">Новое событие</h2>
     <div class="field">
       <label>Тип</label>
@@ -322,6 +279,14 @@ button.small{padding:2px 8px;font-size:12px}
       <div style="flex:1"><label>Начало</label><input type="time" id="modal-start"></div>
       <div style="flex:1"><label>Конец</label><input type="time" id="modal-end"></div>
     </div>
+    <div class="field">
+      <label>Повторение</label>
+      <div class="recur-btns">
+        <button class="recur-btn" data-r="once" onclick="selRecur('once')">Один раз</button>
+        <button class="recur-btn" data-r="weekly" onclick="selRecur('weekly')">Каждую неделю</button>
+        <button class="recur-btn" data-r="biweekly" onclick="selRecur('biweekly')">Раз в 2 недели</button>
+      </div>
+    </div>
     <div class="modal-actions">
       <button onclick="closeModalDirect()">Отмена</button>
       <button class="primary" onclick="saveEvent()">Сохранить</button>
@@ -329,47 +294,50 @@ button.small{padding:2px 8px;font-size:12px}
   </div>
 </div>
 
+<!-- DELETE MODAL -->
+<div class="modal-bg" id="del-modal-bg" onclick="if(event.target===this)document.getElementById('del-modal-bg').classList.remove('open')">
+  <div class="del-modal">
+    <h2>Удалить событие</h2>
+    <p id="del-modal-sub">Это повторяющееся событие</p>
+    <div class="del-options" id="del-options"></div>
+  </div>
+</div>
+
 <script>
-// ============ CONSTANTS ============
 const DAYS_SHORT=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
 const MONTHS_GEN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 const MONTHS_NOM=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
 const WDFULL=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
 const HOUR_START=7,HOUR_END=23,TOTAL_HOURS=16,CELL_H=48;
 const TYPE_LABELS={lesson:'Урок',work:'Работа',uni:'Пары',personal:'Личное'};
+const RECUR_LABELS={once:'Один раз',weekly:'Еженедельно',biweekly:'Раз в 2 нед.'};
 
-// ============ STATE ============
+// ---- STATE ----
 let currentProfile=null;
-let students=[],events=[],notes=[],tasks=[],goals=[];
-let weekOffset=0,dragEvId=null,dragOffsetFrac=0,modalDay=null,modalType='lesson';
+let students=[],events=[],goals=[];
+let weekOffset=0,dragEvId=null,dragOffsetFrac=0;
+let modalDay=null,modalType='lesson',modalRecur='once';
 
-// ============ PROFILE SYSTEM ============
+// ---- PROFILES ----
 function getProfiles(){return JSON.parse(localStorage.getItem('profiles')||'[]');}
 function saveProfiles(p){localStorage.setItem('profiles',JSON.stringify(p));}
-function profileKey(pid,key){return 'p_'+pid+'_'+key;}
+function pkey(k){return'p_'+currentProfile+'_'+k;}
 
 function renderProfileScreen(){
   const profiles=getProfiles();
   const list=document.getElementById('profile-list');
-  if(!profiles.length){
-    list.innerHTML='<div class="empty">Создай первый профиль</div>';return;
-  }
-  list.innerHTML=profiles.map(p=>`
+  list.innerHTML=profiles.length?profiles.map(p=>`
     <div class="profile-item" onclick="selectProfile('${p.id}')">
       <div class="profile-avatar">${ini(p.name)}</div>
-      <div style="flex:1">
-        <div class="profile-name">${p.name}</div>
-        <div class="profile-meta">создан ${p.created}</div>
-      </div>
+      <div style="flex:1"><div class="profile-name">${p.name}</div><div class="profile-meta">${p.created}</div></div>
       <button class="small danger" onclick="deleteProfile(event,'${p.id}')">✕</button>
-    </div>`).join('');
+    </div>`).join(''):'<div class="empty">Создай первый профиль</div>';
 }
 
 function createProfile(){
   const name=document.getElementById('new-profile-name').value.trim();
   if(!name)return;
-  const profiles=getProfiles();
-  const id=uid();
+  const profiles=getProfiles(),id=uid();
   profiles.push({id,name,created:new Date().toLocaleDateString('ru')});
   saveProfiles(profiles);
   document.getElementById('new-profile-name').value='';
@@ -379,20 +347,19 @@ function createProfile(){
 function deleteProfile(e,id){
   e.stopPropagation();
   if(!confirm('Удалить профиль и все данные?'))return;
-  const profiles=getProfiles().filter(p=>p.id!==id);
-  saveProfiles(profiles);
-  ['students','events','notes','tasks','goals'].forEach(k=>localStorage.removeItem(profileKey(id,k)));
+  saveProfiles(getProfiles().filter(p=>p.id!==id));
+  ['students','events','goals'].forEach(k=>localStorage.removeItem('p_'+id+'_'+k));
   renderProfileScreen();
 }
 
 function selectProfile(id){
   currentProfile=id;
   localStorage.setItem('last_profile',id);
-  loadProfileData();
+  loadData();
   document.getElementById('profile-screen').style.display='none';
   document.getElementById('main-app').style.display='block';
   const p=getProfiles().find(p=>p.id===id);
-  document.getElementById('profile-indicator').innerHTML=`<span>${ini(p?.name||'?')}</span><span style="margin-left:2px">${p?.name||''}</span>`;
+  document.getElementById('profile-indicator').innerHTML=`<span>${ini(p?.name||'?')}</span><span style="margin-left:3px">${p?.name||''}</span>`;
   render();
   updateClock();
   setInterval(updateClock,1000);
@@ -405,114 +372,178 @@ function switchProfile(){
   renderProfileScreen();
 }
 
-function loadProfileData(){
-  const g=k=>JSON.parse(localStorage.getItem(profileKey(currentProfile,k))||'[]');
-  students=g('students');events=g('events');notes=g('notes');tasks=g('tasks');goals=g('goals');
+function loadData(){
+  students=JSON.parse(localStorage.getItem(pkey('students'))||'[]');
+  events=JSON.parse(localStorage.getItem(pkey('events'))||'[]');
+  goals=JSON.parse(localStorage.getItem(pkey('goals'))||'[]');
 }
-
 function saveData(){
-  const s=(k,v)=>localStorage.setItem(profileKey(currentProfile,k),JSON.stringify(v));
-  s('students',students);s('events',events);s('notes',notes);s('tasks',tasks);s('goals',goals);
+  localStorage.setItem(pkey('students'),JSON.stringify(students));
+  localStorage.setItem(pkey('events'),JSON.stringify(events));
+  localStorage.setItem(pkey('goals'),JSON.stringify(goals));
 }
 
-// ============ UTILS ============
+// ---- UTILS ----
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
 function ini(n){return(n||'?').trim().split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);}
-function getSt(id){return students.find(s=>s.id===id)||{name:'?',price:0,id};}
+function getSt(id){return students.find(s=>s.id===id)||{name:'?',price:0,id,comment:''};}
 function toMin(t){if(!t)return 0;const[h,m]=t.split(':').map(Number);return h*60+m;}
 function fromMin(m){return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');}
 function durH(s,e){return Math.max(0,(toMin(e)-toMin(s))/60);}
 function fmtDur(s,e){const m=toMin(e)-toMin(s);if(m<=0)return'';const h=Math.floor(m/60),mm=m%60;return h&&mm?h+'ч '+mm+'м':h?h+' ч':mm+'м';}
+function fmtH(h){const wh=Math.floor(h),wm=Math.round((h-wh)*60);return wh&&wm?wh+'ч '+wm+'м':wh?wh+' ч':wm?wm+'м':'0';}
 function fracToTime(f){const tm=HOUR_START*60+Math.round(f*TOTAL_HOURS*60/15)*15;return fromMin(Math.min(tm,HOUR_END*60-15));}
 function timeToFrac(t){return(toMin(t)-HOUR_START*60)/(TOTAL_HOURS*60);}
 function evEarn(ev){if(ev.type!=='lesson')return 0;return durH(ev.start,ev.end)*(getSt(ev.studentId).price||0);}
 function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function todayKey(){return dateKey(new Date());}
-function fmtH(h){const wh=Math.floor(h),wm=Math.round((h-wh)*60);return wh&&wm?wh+'ч '+wm+'м':wh?wh+' ч':wm+'м';}
 function pl(n){if(n%10===1&&n%100!==11)return'урок';if(n%10>=2&&n%10<=4&&!(n%100>=12&&n%100<=14))return'урока';return'уроков';}
+function parseDate(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
 
-// ============ CLOCK ============
+// ---- RECURRENCE ENGINE ----
+// Generates virtual event instances for a given date key
+// events store: {id, recurId, recurType:'once'|'weekly'|'biweekly', date (anchor), deletedDates:[], cutoffDate, ...}
+function getEventsForDate(dkey){
+  const result=[];
+  const target=parseDate(dkey);
+  const targetMs=target.getTime();
+
+  events.forEach(ev=>{
+    if(ev.recurType==='once'){
+      if(ev.date===dkey&&!(ev.deletedDates||[]).includes(dkey)) result.push({...ev,_instanceDate:dkey});
+      return;
+    }
+    const anchor=parseDate(ev.date);
+    const anchorMs=anchor.getTime();
+    const diffMs=targetMs-anchorMs;
+    const diffDays=Math.round(diffMs/86400000);
+    if(diffDays<0)return;
+    const period=ev.recurType==='weekly'?7:14;
+    if(diffDays%period!==0)return;
+    if(ev.cutoffDate&&dkey>=ev.cutoffDate)return;
+    if((ev.deletedDates||[]).includes(dkey))return;
+    result.push({...ev,_instanceDate:dkey});
+  });
+  return result.sort((a,b)=>toMin(a.start)-toMin(b.start));
+}
+
+function getAllEventsForWeek(dates){
+  const result=[];
+  dates.forEach(d=>{
+    getEventsForDate(dateKey(d)).forEach(ev=>result.push(ev));
+  });
+  return result;
+}
+
+// ---- DELETE LOGIC ----
+function promptDelete(evId,instanceDate){
+  const ev=events.find(e=>e.id===evId);
+  if(!ev)return;
+  const bg=document.getElementById('del-modal-bg');
+  const opts=document.getElementById('del-options');
+  const sub=document.getElementById('del-modal-sub');
+
+  if(ev.recurType==='once'){
+    // just delete directly
+    events=events.filter(e=>e.id!==evId);
+    saveData();renderCalendar();
+    if(document.getElementById('v-today').classList.contains('active'))renderToday();
+    return;
+  }
+
+  sub.textContent=`Повторяется ${RECUR_LABELS[ev.recurType].toLowerCase()}`;
+  opts.innerHTML=`
+    <button class="del-option" onclick="deleteInstance('${evId}','${instanceDate}')">Только это событие (${instanceDate})</button>
+    <button class="del-option" onclick="deleteFromHere('${evId}','${instanceDate}')">Это и все следующие</button>
+    <button class="del-option red" onclick="deleteAll('${evId}')">Все повторения</button>
+    <button class="del-option" onclick="document.getElementById('del-modal-bg').classList.remove('open')" style="color:#6e6e73">Отмена</button>`;
+  bg.classList.add('open');
+}
+
+function deleteInstance(evId,date){
+  const ev=events.find(e=>e.id===evId);
+  if(ev){if(!ev.deletedDates)ev.deletedDates=[];ev.deletedDates.push(date);}
+  document.getElementById('del-modal-bg').classList.remove('open');
+  saveData();renderCalendar();
+  if(document.getElementById('v-today').classList.contains('active'))renderToday();
+}
+function deleteFromHere(evId,date){
+  const ev=events.find(e=>e.id===evId);
+  if(ev)ev.cutoffDate=date;
+  document.getElementById('del-modal-bg').classList.remove('open');
+  saveData();renderCalendar();
+  if(document.getElementById('v-today').classList.contains('active'))renderToday();
+}
+function deleteAll(evId){
+  events=events.filter(e=>e.id!==evId);
+  document.getElementById('del-modal-bg').classList.remove('open');
+  saveData();renderCalendar();
+  if(document.getElementById('v-today').classList.contains('active'))renderToday();
+}
+
+// ---- CLOCK ----
 function updateClock(){
   const now=new Date();
   const h=String(now.getHours()).padStart(2,'0'),m=String(now.getMinutes()).padStart(2,'0'),s=String(now.getSeconds()).padStart(2,'0');
   document.getElementById('header-clock').textContent=h+':'+m+':'+s;
   document.getElementById('header-date').textContent=now.getDate()+' '+MONTHS_GEN[now.getMonth()]+' '+now.getFullYear()+' — '+WDFULL[now.getDay()];
-  const tl=events.filter(ev=>ev.date===todayKey()&&ev.type==='lesson').length;
+  const tl=getEventsForDate(todayKey()).filter(ev=>ev.type==='lesson').length;
   document.getElementById('header-clock-sub').textContent=tl?'сегодня '+tl+' '+pl(tl):'сегодня уроков нет';
   renderNowLine();
 }
 
-// ============ TODAY DASHBOARD ============
+// ---- TODAY ----
 function renderToday(){
   const tkey=todayKey();
-  const todayEvs=events.filter(ev=>ev.date===tkey).sort((a,b)=>toMin(a.start)-toMin(b.start));
+  const todayEvs=getEventsForDate(tkey);
   const lessons=todayEvs.filter(ev=>ev.type==='lesson');
   const nowMin=new Date().getHours()*60+new Date().getMinutes();
-
-  // stats
   const todayIncome=lessons.reduce((s,ev)=>s+evEarn(ev),0);
   const todayH=lessons.reduce((s,ev)=>s+durH(ev.start,ev.end),0);
   const remaining=lessons.filter(ev=>toMin(ev.end)>nowMin).reduce((s,ev)=>s+evEarn(ev),0);
   document.getElementById('today-stats').innerHTML=`
     <div class="today-stat green"><div class="today-stat-val">${Math.round(todayIncome).toLocaleString()} ₽</div><div class="today-stat-lbl">заработаю сегодня</div></div>
     <div class="today-stat blue"><div class="today-stat-val">${Math.round(remaining).toLocaleString()} ₽</div><div class="today-stat-lbl">ещё впереди</div></div>
-    <div class="today-stat"><div class="today-stat-val">${lessons.length}</div><div class="today-stat-lbl">уроков сегодня</div></div>
+    <div class="today-stat"><div class="today-stat-val">${lessons.length}</div><div class="today-stat-lbl">уроков</div></div>
     <div class="today-stat"><div class="today-stat-val">${fmtH(todayH)||'—'}</div><div class="today-stat-lbl">часов уроков</div></div>`;
-
-  // timeline
   const tl=document.getElementById('today-timeline');
   if(!todayEvs.length){tl.innerHTML='<div class="empty">Событий нет — добавь в Календаре</div>';return;}
   tl.innerHTML=todayEvs.map(ev=>{
     const isPast=toMin(ev.end||ev.start)<nowMin;
-    const label=ev.type==='lesson'?getSt(ev.studentId).name:(ev.title||TYPE_LABELS[ev.type]);
-    const earn=evEarn(ev);
     const st=ev.type==='lesson'?getSt(ev.studentId):null;
+    const label=ev.type==='lesson'?st.name:(ev.title||TYPE_LABELS[ev.type]);
     const sub=ev.type==='lesson'&&st?.comment?st.comment:TYPE_LABELS[ev.type];
+    const earn=evEarn(ev);
+    const recurIcon=ev.recurType&&ev.recurType!=='once'?'↻ ':'';
     return `<div class="tl-item ev-${ev.type}${isPast?' past':''}">
       <div class="tl-time">${ev.start}${ev.end?'–'+ev.end:''}</div>
-      <div style="flex:1">
-        <div class="tl-name">${label}</div>
-        <div class="tl-sub">${sub} · ${fmtDur(ev.start,ev.end)}</div>
-      </div>
+      <div style="flex:1"><div class="tl-name">${recurIcon}${label}</div><div class="tl-sub">${sub} · ${fmtDur(ev.start,ev.end)}</div></div>
       ${earn>0?`<div class="tl-earn">${Math.round(earn)} ₽</div>`:''}
     </div>`;
   }).join('');
-
-  // goals
   renderGoals();
 }
 
-// ============ GOALS ============
+// ---- GOALS ----
 function renderGoals(){
   const el=document.getElementById('goals-list');
   const tkey=todayKey();
   const todayGoals=goals.filter(g=>g.date===tkey);
-  if(!todayGoals.length){el.innerHTML='<div class="empty" style="padding:8px 0">Добавь цели на сегодня</div>';return;}
-  el.innerHTML=todayGoals.map(g=>`
+  el.innerHTML=todayGoals.length?todayGoals.map(g=>`
     <div class="goal-item${g.done?' done-goal':''}" onclick="toggleGoal('${g.id}')">
       <div class="goal-check">${g.done?'✓':''}</div>
       <div class="goal-text">${g.text}</div>
       <button class="small danger" onclick="removeGoal(event,'${g.id}')">✕</button>
-    </div>`).join('');
+    </div>`).join(''):'<div class="empty" style="padding:8px 0">Добавь цели на сегодня</div>';
 }
-
 function addGoal(){
-  const inp=document.getElementById('new-goal');
-  const text=inp.value.trim();if(!text)return;
-  goals.push({id:uid(),text,done:false,date:todayKey()});
-  inp.value='';saveData();renderGoals();
+  const inp=document.getElementById('new-goal'),text=inp.value.trim();if(!text)return;
+  goals.push({id:uid(),text,done:false,date:todayKey()});inp.value='';saveData();renderGoals();
 }
+function toggleGoal(id){const g=goals.find(g=>g.id===id);if(g)g.done=!g.done;saveData();renderGoals();}
+function removeGoal(e,id){e.stopPropagation();goals=goals.filter(g=>g.id!==id);saveData();renderGoals();}
 
-function toggleGoal(id){
-  const g=goals.find(g=>g.id===id);if(g)g.done=!g.done;
-  saveData();renderGoals();
-}
-
-function removeGoal(e,id){
-  e.stopPropagation();goals=goals.filter(g=>g.id!==id);saveData();renderGoals();
-}
-
-// ============ WEEK NAV ============
+// ---- WEEK NAV ----
 function getWeekStart(offset){
   const now=new Date(),day=now.getDay(),mon=new Date(now);
   mon.setDate(now.getDate()-((day+6)%7)+offset*7);mon.setHours(0,0,0,0);return mon;
@@ -524,44 +555,54 @@ function weekDates(offset){
 function shiftWeek(n){weekOffset+=n;renderCalendar();}
 function goToday(){weekOffset=0;renderCalendar();}
 
-// ============ CALENDAR ============
+// ---- CALENDAR ----
 function renderCalendar(){
   const dates=weekDates(weekOffset),tkey=todayKey();
   const ws=dates[0],we=dates[6];
   document.getElementById('week-label').textContent=ws.getDate()+' '+MONTHS_NOM[ws.getMonth()]+' — '+we.getDate()+' '+MONTHS_NOM[we.getMonth()]+' '+we.getFullYear();
   const grid=document.getElementById('cal-grid');grid.innerHTML='';
+  // header
   const corner=document.createElement('div');corner.className='cal-time-head';grid.appendChild(corner);
   dates.forEach((d,i)=>{
-    const cell=document.createElement('div');
-    cell.className='cal-head-cell'+(dateKey(d)===tkey?' today-col':'');
+    const cell=document.createElement('div');cell.className='cal-head-cell'+(dateKey(d)===tkey?' today-col':'');
     cell.innerHTML=`<div style="font-size:11px">${DAYS_SHORT[i]}</div><div class="cal-day-num">${d.getDate()}</div>`;
     grid.appendChild(cell);
   });
   const body=document.createElement('div');body.className='cal-body';grid.appendChild(body);
+  // time col
   const timeCol=document.createElement('div');timeCol.className='cal-time-col';
   for(let h=HOUR_START;h<HOUR_END;h++){
     const slot=document.createElement('div');slot.className='cal-time-slot';slot.textContent=String(h).padStart(2,'0')+':00';timeCol.appendChild(slot);
   }
   body.appendChild(timeCol);
-  dates.forEach((d)=>{
+  // day cols
+  dates.forEach(d=>{
     const dkey=dateKey(d);
     const col=document.createElement('div');col.className='cal-day-col'+(dkey===tkey?' today-col':'');
     for(let h=0;h<TOTAL_HOURS;h++){
       const line=document.createElement('div');line.className='cal-hour-line';line.style.top=(h*CELL_H)+'px';col.appendChild(line);
       const half=document.createElement('div');half.className='cal-half-line';half.style.top=(h*CELL_H+CELL_H/2)+'px';col.appendChild(half);
     }
-    const dz=document.createElement('div');dz.className='cal-drop-zone';dz.dataset.date=dkey;
+    // drop zone
+    const dz=document.createElement('div');dz.className='cal-drop-zone';
     dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
     dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
     dz.addEventListener('drop',e=>{
       e.preventDefault();dz.classList.remove('drag-over');if(!dragEvId)return;
+      const {evId,instanceDate}=JSON.parse(dragEvId);
       const rect=col.getBoundingClientRect();
       const frac=Math.max(0,Math.min(1,(e.clientY-rect.top)/(TOTAL_HOURS*CELL_H)));
-      const ev=events.find(ev=>ev.id===dragEvId);if(!ev)return;
+      const ev=events.find(ev=>ev.id===evId);if(!ev)return;
       const dur=toMin(ev.end)-toMin(ev.start);
       const ns=fracToTime(Math.max(0,frac-dragOffsetFrac));
       const nsm=toMin(ns),nem=Math.min(HOUR_END*60,nsm+dur);
-      ev.date=dkey;ev.start=fromMin(nsm);ev.end=fromMin(nem);
+      // moving a recurring event: treat as "delete this instance, create new once at new position"
+      if(ev.recurType!=='once'&&dkey!==instanceDate){
+        if(!ev.deletedDates)ev.deletedDates=[];ev.deletedDates.push(instanceDate);
+        events.push({id:uid(),recurId:null,recurType:'once',date:dkey,type:ev.type,start:fromMin(nsm),end:fromMin(nem),studentId:ev.studentId,title:ev.title});
+      } else {
+        ev.date=dkey;ev.start=fromMin(nsm);ev.end=fromMin(nem);
+      }
       saveData();renderCalendar();
       if(document.getElementById('v-today').classList.contains('active'))renderToday();
     });
@@ -572,16 +613,24 @@ function renderCalendar(){
       openModal(dkey,frac);
     });
     col.appendChild(dz);
-    events.filter(ev=>ev.date===dkey).sort((a,b)=>toMin(a.start)-toMin(b.start)).forEach(ev=>{
+    // events
+    getEventsForDate(dkey).forEach(ev=>{
       const sf=timeToFrac(ev.start),ef=timeToFrac(ev.end||ev.start);
-      const top=sf*TOTAL_HOURS*CELL_H,height=Math.max(20,(ef-sf)*TOTAL_HOURS*CELL_H);
+      const top=sf*TOTAL_HOURS*CELL_H,height=Math.max(22,(ef-sf)*TOTAL_HOURS*CELL_H);
       const el=document.createElement('div');el.className='cal-event ev-'+ev.type;
       el.style.cssText=`top:${top}px;height:${height}px`;el.draggable=true;
-      const label=ev.type==='lesson'?getSt(ev.studentId).name:(ev.title||TYPE_LABELS[ev.type]);
-      const earn=evEarn(ev);
-      el.innerHTML=`<div class="cal-event-name">${label}</div><div class="cal-event-time">${ev.start}–${ev.end} ${fmtDur(ev.start,ev.end)}</div>${earn>0?`<div class="cal-event-earn">${Math.round(earn)} ₽</div>`:''}<button class="del-btn" onclick="delEvent('${ev.id}',event)">✕</button>`;
+      const st=ev.type==='lesson'?getSt(ev.studentId):null;
+      const label=ev.type==='lesson'?st.name:(ev.title||TYPE_LABELS[ev.type]);
+      const comment=ev.type==='lesson'&&st?.comment?st.comment:'';
+      const recurIcon=ev.recurType&&ev.recurType!=='once'?'↻ ':'';
+      el.innerHTML=`
+        <div class="cal-event-name">${recurIcon}${label}</div>
+        <div class="cal-event-time">${ev.start}–${ev.end} ${fmtDur(ev.start,ev.end)}</div>
+        ${comment?`<div class="cal-event-comment">${comment}</div>`:''}
+        <button class="del-btn" onclick="promptDelete('${ev.id}','${ev._instanceDate}');event.stopPropagation()">✕</button>`;
       el.addEventListener('dragstart',e=>{
-        dragEvId=ev.id;const rect=el.getBoundingClientRect();dragOffsetFrac=(e.clientY-rect.top)/(TOTAL_HOURS*CELL_H);
+        dragEvId=JSON.stringify({evId:ev.id,instanceDate:ev._instanceDate});
+        const rect=el.getBoundingClientRect();dragOffsetFrac=(e.clientY-rect.top)/(TOTAL_HOURS*CELL_H);
         e.dataTransfer.effectAllowed='move';setTimeout(()=>el.style.opacity='0.4',0);
       });
       el.addEventListener('dragend',()=>{el.style.opacity='';dragEvId=null;});
@@ -600,11 +649,10 @@ function renderNowLine(){
   nl.style.display='block';nl.style.top=(frac*TOTAL_HOURS*CELL_H)+'px';
   nl.innerHTML='<div class="now-line-inner"><div class="now-dot"></div></div>';
 }
-function delEvent(id,e){e.stopPropagation();events=events.filter(ev=>ev.id!==id);saveData();renderCalendar();if(document.getElementById('v-today').classList.contains('active'))renderToday();}
 
-// ============ MODAL ============
+// ---- MODAL ----
 function openModal(dkey,frac){
-  modalDay=dkey;selType('lesson');
+  modalDay=dkey;selType('lesson');selRecur('once');
   const start=fracToTime(frac),startMin=toMin(start);
   document.getElementById('modal-start').value=start;
   document.getElementById('modal-end').value=fromMin(Math.min(startMin+60,HOUR_END*60));
@@ -612,20 +660,23 @@ function openModal(dkey,frac){
   document.getElementById('modal-student').innerHTML=students.length?students.map(s=>`<option value="${s.id}">${s.name}</option>`).join(''):'<option value="">— нет учеников</option>';
   document.getElementById('modal-bg').classList.add('open');
 }
-function closeModal(e){if(e.target===document.getElementById('modal-bg'))closeModalDirect();}
 function closeModalDirect(){document.getElementById('modal-bg').classList.remove('open');}
 function selType(t){
   modalType=t;
   document.querySelectorAll('.type-btn').forEach(b=>b.className='type-btn'+(b.dataset.t===t?' sel-'+t:''));
   document.getElementById('modal-student-field').style.display=t==='lesson'?'':'none';
   document.getElementById('modal-title-field').style.display=t==='lesson'?'none':'';
-  document.getElementById('modal-title').textContent={lesson:'Урок',work:'Блок работы',uni:'Пары',personal:'Личное'}[t]||'Событие';
+  document.getElementById('modal-title').textContent={lesson:'Урок',work:'Блок работы',uni:'Пары',personal:'Личное'}[t];
+}
+function selRecur(r){
+  modalRecur=r;
+  document.querySelectorAll('.recur-btn').forEach(b=>b.className='recur-btn'+(b.dataset.r===r?' sel':''));
 }
 function saveEvent(){
   const start=document.getElementById('modal-start').value,end=document.getElementById('modal-end').value;
   if(!start||!end||!modalDay)return;
   if(toMin(end)<=toMin(start)){alert('Конец должен быть позже начала');return;}
-  const ev={id:uid(),date:modalDay,type:modalType,start,end};
+  const ev={id:uid(),recurType:modalRecur,date:modalDay,type:modalType,start,end,deletedDates:[]};
   if(modalType==='lesson')ev.studentId=document.getElementById('modal-student').value;
   else ev.title=document.getElementById('modal-ev-title').value.trim()||TYPE_LABELS[modalType];
   events.push(ev);saveData();closeModalDirect();renderCalendar();
@@ -633,7 +684,7 @@ function saveEvent(){
   if(document.getElementById('v-stats').classList.contains('active'))renderStats();
 }
 
-// ============ STUDENTS ============
+// ---- STUDENTS ----
 function addStudent(){
   const n=document.getElementById('new-sname').value.trim();
   const p=parseFloat(document.getElementById('new-sprice').value)||0;
@@ -645,7 +696,7 @@ function addStudent(){
 }
 function removeStudent(id){
   if(!confirm('Удалить ученика?'))return;
-  students=students.filter(s=>s.id!==id);events=events.filter(ev=>!(ev.type==='lesson'&&ev.studentId===id));
+  students=students.filter(s=>s.id!==id);
   saveData();renderStudentsList();
 }
 function renderStudentsList(){
@@ -663,20 +714,20 @@ function renderStudentsList(){
     </div>`).join('');
 }
 
-// ============ STATS ============
+// ---- STATS ----
 function renderStats(){
-  const dates=weekDates(weekOffset),dkeys=dates.map(dateKey);
-  const lessonEvs=events.filter(ev=>dkeys.includes(ev.date)&&ev.type==='lesson');
+  const dates=weekDates(weekOffset);
+  const weekEvs=getAllEventsForWeek(dates).filter(ev=>ev.type==='lesson');
   let totalH=0,totalIncome=0;const bySt={};
-  lessonEvs.forEach(ev=>{
+  weekEvs.forEach(ev=>{
     const h=durH(ev.start,ev.end),earn=evEarn(ev);totalH+=h;totalIncome+=earn;
     const st=getSt(ev.studentId);
     if(!bySt[ev.studentId])bySt[ev.studentId]={name:st.name,price:st.price||0,count:0,hours:0,income:0};
     bySt[ev.studentId].count++;bySt[ev.studentId].hours+=h;bySt[ev.studentId].income+=earn;
   });
   document.getElementById('stat-grid').innerHTML=`
-    <div class="stat-card"><div class="stat-val">${lessonEvs.length}</div><div class="stat-lbl">уроков в неделю</div></div>
-    <div class="stat-card"><div class="stat-val">${fmtH(totalH)||'0'}</div><div class="stat-lbl">часов уроков</div></div>
+    <div class="stat-card"><div class="stat-val">${weekEvs.length}</div><div class="stat-lbl">уроков в неделю</div></div>
+    <div class="stat-card"><div class="stat-val">${fmtH(totalH)}</div><div class="stat-lbl">часов уроков</div></div>
     <div class="stat-card"><div class="stat-val">${Math.round(totalIncome).toLocaleString()} ₽</div><div class="stat-lbl">доход в неделю</div></div>
     <div class="stat-card"><div class="stat-val">${Math.round(totalIncome*4).toLocaleString()} ₽</div><div class="stat-lbl">~доход в месяц</div></div>`;
   const rows=Object.values(bySt);
@@ -686,65 +737,32 @@ function renderStats(){
       <div style="flex:1;margin-left:6px"><div>${r.name}</div><div style="font-size:11px;color:#8e8e93">${r.count} ур. · ${fmtH(r.hours)} · ${r.price} ₽/ч</div></div>
       <div style="font-weight:600">${Math.round(r.income).toLocaleString()} ₽</div>
     </div>`).join(''):'<div class="empty">Нет уроков на этой неделе</div>';
-  const maxI=Math.max(...dates.map(d=>events.filter(ev=>ev.date===dateKey(d)&&ev.type==='lesson').reduce((s,ev)=>s+evEarn(ev),0)),1);
+  const maxI=Math.max(...dates.map(d=>{
+    const di=getEventsForDate(dateKey(d)).filter(ev=>ev.type==='lesson').reduce((s,ev)=>s+evEarn(ev),0);return di;
+  }),1);
   document.getElementById('days-breakdown').innerHTML=DAYS_SHORT.map((d,i)=>{
-    const dk=dateKey(dates[i]),dl=events.filter(ev=>ev.date===dk&&ev.type==='lesson'),di2=dl.reduce((s,ev)=>s+evEarn(ev),0);
-    return `<div class="bar-row"><span style="font-size:12px;color:#6e6e73;min-width:22px">${d}</span><div class="bar-track"><div class="bar-fill" style="width:${di2?Math.round(di2/maxI*100):0}%"></div></div><span style="font-size:12px;color:#6e6e73;min-width:16px;text-align:right">${dl.length}</span><span style="font-size:12px;color:#34c759;min-width:60px;text-align:right">${di2?Math.round(di2).toLocaleString()+' ₽':''}</span></div>`;
+    const dk=dateKey(dates[i]),dl=getEventsForDate(dk).filter(ev=>ev.type==='lesson'),di=dl.reduce((s,ev)=>s+evEarn(ev),0);
+    return `<div class="bar-row"><span style="font-size:12px;color:#6e6e73;min-width:22px">${d}</span><div class="bar-track"><div class="bar-fill" style="width:${di?Math.round(di/maxI*100):0}%"></div></div><span style="font-size:12px;color:#6e6e73;min-width:16px;text-align:right">${dl.length}</span><span style="font-size:12px;color:#34c759;min-width:60px;text-align:right">${di?Math.round(di).toLocaleString()+' ₽':''}</span></div>`;
   }).join('');
 }
 
-// ============ NOTES ============
-function renderNoteStudentSel(){
-  document.getElementById('note-student-sel').innerHTML=students.length?students.map(s=>`<option value="${s.id}">${s.name}</option>`).join(''):'<option value="">— нет учеников</option>';
-}
-function addNote(){
-  const studentId=document.getElementById('note-student-sel').value;
-  const passed=document.getElementById('note-passed').value.trim(),hw=document.getElementById('note-hw').value.trim();
-  const date=document.getElementById('note-date').value.trim()||new Date().toLocaleDateString('ru');
-  if(!studentId||(!passed&&!hw))return;
-  notes.unshift({id:uid(),studentId,passed,hw,date});
-  document.getElementById('note-passed').value='';document.getElementById('note-hw').value='';document.getElementById('note-date').value='';
-  saveData();renderNotes();
-}
-function removeNote(id){notes=notes.filter(n=>n.id!==id);saveData();renderNotes();}
-function renderNotes(){
-  const el=document.getElementById('notes-list');document.getElementById('notes-count').textContent=notes.length;
-  if(!notes.length){el.innerHTML='<div class="empty">Нет заметок</div>';return;}
-  el.innerHTML=notes.map(n=>{const st=getSt(n.studentId);return`<div class="note-item"><div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><div class="avatar">${ini(st.name)}</div><span style="font-weight:500;font-size:13px">${st.name}</span><span style="font-size:11px;color:#8e8e93">${n.date}</span><button class="small danger" style="margin-left:auto" onclick="removeNote('${n.id}')">✕</button></div>${n.passed?`<div style="font-size:11px;color:#8e8e93;margin-bottom:2px">Прошли</div><div style="font-size:13px;line-height:1.5">${n.passed}</div>`:''}${n.hw?`<div style="font-size:11px;color:#8e8e93;margin-top:4px;margin-bottom:2px">ДЗ</div><div style="font-size:13px;line-height:1.5">${n.hw}</div>`:''}</div>`;}).join('');
-}
-
-// ============ DEVOPS ============
-function addTask(){const txt=document.getElementById('new-task').value.trim();if(!txt)return;tasks.unshift({id:uid(),text:txt,status:'todo'});document.getElementById('new-task').value='';saveData();renderKanban();}
-function moveTask(id,s){const t=tasks.find(t=>t.id===id);if(t){t.status=s;saveData();renderKanban();}}
-function removeTask(id){tasks=tasks.filter(t=>t.id!==id);saveData();renderKanban();}
-function renderKanban(){
-  ['todo','prog','done'].forEach(s=>{
-    const items=tasks.filter(t=>t.status===s);document.getElementById('cnt-'+s).textContent=items.length;
-    document.getElementById('col-'+s).innerHTML=items.length?items.map(t=>`<div class="ktask"><div class="ktask-text">${t.text}</div><div class="ktask-actions">${s!=='prog'?`<button onclick="moveTask('${t.id}','prog')">▶ в работу</button>`:''}${s!=='done'?`<button onclick="moveTask('${t.id}','done')">✓ готово</button>`:''}${s!=='todo'?`<button onclick="moveTask('${t.id}','todo')">← назад</button>`:''}<button class="danger" style="margin-left:auto" onclick="removeTask('${t.id}')">✕</button></div></div>`).join(''):`<div style="font-size:12px;color:#8e8e93;padding:10px 0;text-align:center">пусто</div>`;
-  });
-}
-
-// ============ TAB SWITCH ============
+// ---- TAB SWITCH ----
 function sw(t){
-  ['today','calendar','stats','notes','devops','students'].forEach(v=>{document.getElementById('v-'+v).classList.toggle('active',v===t);});
-  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['today','calendar','stats','notes','devops','students'][i]===t));
+  ['today','calendar','stats','students'].forEach(v=>document.getElementById('v-'+v).classList.toggle('active',v===t));
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['today','calendar','stats','students'][i]===t));
   if(t==='today')renderToday();
   if(t==='calendar')renderCalendar();
   if(t==='stats')renderStats();
-  if(t==='notes')renderNoteStudentSel();
 }
 
-function render(){
-  renderToday();renderStudentsList();renderNotes();renderKanban();renderNoteStudentSel();
-}
+function render(){renderToday();renderStudentsList();}
 
-// ============ INIT ============
-(function init(){
+// ---- INIT ----
+(function(){
   renderProfileScreen();
   const last=localStorage.getItem('last_profile');
-  const profiles=getProfiles();
-  if(last&&profiles.find(p=>p.id===last)){selectProfile(last);}
-  else{document.getElementById('profile-screen').style.display='flex';}
+  if(last&&getProfiles().find(p=>p.id===last)){selectProfile(last);}
+  else document.getElementById('profile-screen').style.display='flex';
   if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
 </script>
